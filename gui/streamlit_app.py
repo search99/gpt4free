@@ -12,7 +12,7 @@ def get_answer(question: str) -> str:
     try:
         result = you.Completion.create(prompt=question)
 
-        return result.text.encode('utf-8').decode('unicode_escape')
+        return result.text
 
     except Exception as e:
         # Return error message if an exception occurs

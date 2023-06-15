@@ -38,17 +38,7 @@ class Completion:
         if chat is None:
             chat = []
 
-
-        def getProxy():
-            import os
-            proxy = os.environ.get('HTTP_PROXY')
-            # print(proxy)
-            if proxy:
-                return {'http': proxy, 'https':proxy}
-            else:
-                {}
-
-        proxies = getProxy()
+        proxies = {'http': 'http://' + proxy, 'https': 'http://' + proxy} if proxy else {}
 
         client = Session(client_identifier='chrome_108')
         client.headers = Completion.__get_headers()
