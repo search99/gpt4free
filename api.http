@@ -1,0 +1,26 @@
+@hostname = localhost
+@port = 5000
+@host = {{hostname}}:{{port}}
+@contentType = application/json; charset=utf-8
+
+### text
+POST /predictions HTTP/1.1
+host: {{host}}
+Content-Type: {{contentType}}
+
+{
+    "input": {
+        "text": "Hello world!"
+    }
+}
+
+### image
+POST /predictions HTTP/1.1
+host: {{host}}
+Content-Type: {{contentType}}
+
+{
+    "input": {
+        "image": "data:///examples/kodim24.png"
+    }
+}
